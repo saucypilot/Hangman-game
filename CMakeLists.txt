@@ -11,3 +11,4 @@ add_executable(Hangman_game
         .idea/vcs.xml
         .idea/workspace.xml
         main.cpp)
+target_link_libraries(Hangman_game PRIVATE stdc++fs)
