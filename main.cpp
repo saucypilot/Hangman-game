@@ -10,5 +10,6 @@ bool checkLetter();
 
 int main()
 {
+    cout<<"Welcome to Hangman!"<<endl;
     return 0;
 }

@@ -1,13 +1,11 @@
-cmake_minimum_required(VERSION 3.24)
-project(Hangman_game    )
+cmake_minimum_required(VERSION 3.0.0)
+project(Hangman game VERSION 0.1.0)
 
-set(CMAKE_CXX_STANDARD 14)
+include(CTest)
+enable_testing()
 
-include_directories(.)
-include_directories(.idea)
+add_executable(Hangman game main.cpp)
 
-add_executable(Hangman_game
-        .idea/.gitignore
-         .idea/workspace.xml
-        main.cpp)
-target_link_libraries(Hangman_game PRIVATE stdc++fs)
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)

@@ -1,3 +1,0 @@
-/Users/saucypilot/Documents/GitHub/Hangman-game/cmake-build-debug/CMakeFiles/Hangman_game.dir
-/Users/saucypilot/Documents/GitHub/Hangman-game/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/saucypilot/Documents/GitHub/Hangman-game/cmake-build-debug/CMakeFiles/rebuild_cache.dir
