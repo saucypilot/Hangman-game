@@ -8,14 +8,18 @@ string chosenPassword()
     string chosenPassword;
     cout << "Choose the player that will choose the password for all of you to guess and have him enter the password below:" << endl;
     cin >> chosenPassword;
+    return chosenPassword;
 };
 
 string hidePassword(string word)
 {
-    string hiddenPassword(chosenPassword.length(), '*');
+    string hiddenPassword(word.length(), '*');
+    return hiddenPassword;
 };
 
-string displayGameUI();
+string displayGameUI(){
+    
+};
 
 bool checkLetter();
 
