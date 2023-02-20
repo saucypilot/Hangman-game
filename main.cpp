@@ -3,28 +3,29 @@
 
 using namespace std;
 
-string chosenPassword()
+string chosenPassword(string password)
 {
-    string chosenPassword;
     cout << "Choose the player that will choose the password for all of you to guess and have him enter the password below:" << endl;
-    cin >> chosenPassword;
-    return chosenPassword;
+    cin >> password;
+    return password;
 };
 
-string hidePassword(string word)
+string hidePassword(string password)
 {
-    string hiddenPassword(word.length(), '*');
+    string hiddenPassword(password.length(), '*');
     return hiddenPassword;
 };
 
-string displayGameUI(){
-    
-};
+string displayGameUI();
 
 bool checkLetter();
 
 int main()
 {
-    cout << "Welcome to Hangman!" << endl;
+    string password;
+    chosenPassword(password);
+    hidePassword(password);
+    displayGameUI();
+    checkLetter();
     return 0;
 }
