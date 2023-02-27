@@ -3,20 +3,26 @@
 
 using namespace std;
 
-string chosenPassword(string password);
+string chosenPassword(string &password);
 void hidePassword(string &password);
-void displayGameUI(string password);
+void checkPassword(string &password, string &hangman, int &numIncorrectGuesses);
 
 int main()
 {
     string password;
+    string hangman = " _____\n |    |\n      |\n      |\n      |\n      |\n______|";
+    int numIncorrectGuesses = 0;
+
     chosenPassword(password);
     hidePassword(password);
-    displayGameUI(password);
+    while (numIncorrectGuesses < 6)
+    {
+        checkPassword(password, hangman, numIncorrectGuesses);
+    }
     return 0;
 }
 
-string chosenPassword(string password)
+string chosenPassword(string &password)
 {
     cout << "Choose the player that will choose the password for all of you to guess and have him enter the password below:" << endl;
     cin >> password;
@@ -32,15 +38,35 @@ void hidePassword(string &password)
     }
 };
 
-void displayGameUI(string password)
+void checkPassword(string &password, string &hangman, int &numIncorrectGuesses)
 {
-    cout << "  _______" << endl;
-    cout << "  |     |" << endl;
-    cout << "  |     O" << endl;
-    cout << "  |    /|\\" << endl;
-    cout << "  |    / \\" << endl;
-    cout << "  |" << endl;
-    cout << "__|__" << endl;
-    cout << endl;
-    cout << password << endl;
+    char guess;
+    if (hangman.find(guess) == string::npos)
+    {
+        numIncorrectGuesses++;
+        if (numIncorrectGuesses == 1)
+        {
+            hangman.replace(20, 1, "O");
+        }
+        else if (numIncorrectGuesses == 2)
+        {
+            hangman.replace(31, 2, "/\\");
+        }
+        else if (numIncorrectGuesses == 3)
+        {
+            hangman.replace(35, 1, "|");
+        }
+        else if (numIncorrectGuesses == 4)
+        {
+            hangman.replace(36, 1, "\\");
+        }
+        else if (numIncorrectGuesses == 5)
+        {
+            hangman.replace(38, 1, "/");
+        }
+        else if (numIncorrectGuesses == 6)
+        {
+            hangman.replace(39, 1, "\\");
+        }
+    }
 };
