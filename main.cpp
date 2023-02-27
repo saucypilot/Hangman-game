@@ -40,7 +40,11 @@ void hidePassword(string &password)
 
 void checkPassword(string &password, string &hangman, int &numIncorrectGuesses)
 {
+    // Ask player to guess a letter
     char guess;
+    cout << "Guess a letter: ";
+    cin >> guess;
+
     if (hangman.find(guess) == string::npos)
     {
         numIncorrectGuesses++;
@@ -67,6 +71,16 @@ void checkPassword(string &password, string &hangman, int &numIncorrectGuesses)
         else if (numIncorrectGuesses == 6)
         {
             hangman.replace(39, 1, "\\");
+        }
+    }
+    else if (hangman.find(guess) != string::npos)
+    {
+        for (int i = 0; i < password.length(); i++)
+        {
+            if (password[i] == guess)
+            {
+                password[i] = guess;
+            }
         }
     }
 };
